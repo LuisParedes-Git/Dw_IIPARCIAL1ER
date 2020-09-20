@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/6726dc4a60.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="stylesheet" href="assets/styles/spinner.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="assets/scripts/main.js"></script>
+    <script src="assets/scripts/socketClient.js"></script>
+    <title>TOTITO</title>
+</head>
+<body>
+<div id="gameRoomName"></div>
+<div id="gameBoard"></div>
+<div id="playerContainer">
+    <div class="playerIndicator" player="1"></div>
+    <div id="spacer"></div>
+    <div class="playerIndicator" player="2"></div>
+</div>
+<div id="gameStartModal">
+    <div class="roomFullMessage"></div>
+    <div class="roomTakenMessage"></div>
+    <div id="roomSelect">
+        <div id="existingRooms">
+            <button id="newRoomLink" class="joinCreateSwitch link"><span>Crear nueva partida</span></button>
+            <span class="create-join-room-title"><h2>Unirse a un juego</h2></span>
+            <ul id="roomList"></ul>
+        </div>
+        <div id="createRoom">
+            <button id="createRoomLink" class="joinCreateSwitch link"><span>Unirse a ún juego existente</span></button>
+            <div class="roomTakenMessage"></div>
+            <label for="roomName"><h2>Crear partida nueva: </h2></label>
+            <input
+                    onfocus="(
+                        function(){
+                            document.querySelector('.roomTakenMessage').innerHTML=''
+                        }
+                    )()"
+                    id="roomName"
+                    type="text" />
+                <button id="roomBtn"><span>Crear
+                </span></button>
+        </div>
+    </div>
+    <div id="charSelect">
+        <div id="playerSelectContainer">
+            <p><input name="player" id="player1" type="radio" value="1"><label for="player1"></label></p>
+            <p><input name="player" id="player2" type="radio" value="2"><label for="player2"></label></p>
+                     
+            <button id="charSelectBtn"><span>Seleccionar Personaje</span></button>
+        </div>
+        <button id="leaveRoomLink" class="joinCreateSwitch link"><span>Abandonar juego</span></button>
+    </div>
+</div>
+<div id="gameOverModal"></div>
+</body>
+</html>
